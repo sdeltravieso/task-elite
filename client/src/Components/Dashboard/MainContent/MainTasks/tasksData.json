@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "task": "Paint the wall",
+    "description": "Paint the wall white and leave nice sideboards on the floor."
+  },
+  {
+    "id": 2,
+    "task": "Eat Food",
+    "description": "Nourish thyself to avoid falling into hunger and despair."
+  },
+  {
+    "id": 3,
+    "task": "Run a marathon",
+    "description": "Run like forest gump, but just make sure you stop at 26 miles."
+  },
+  {
+    "id": 4,
+    "task": "Swim to Hawaii",
+    "description": "Swim like your life depends on it, because it does. There are sharks chasing you."
+  },
+  {
+    "id": 5,
+    "task": "Change the lightbulb",
+    "description": "Give thyself light. And then see."
+  }
+]

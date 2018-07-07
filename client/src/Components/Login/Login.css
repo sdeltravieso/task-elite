@@ -1,0 +1,42 @@
+.imgdiv {
+width: 100%;
+}
+
+img {
+	width: 15em;
+	height: auto;
+	align-content: center;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: Transparent;
+	border: none;
+	cursor:pointer;
+	overflow: hidden;
+}
+h1 {
+	text-align: center;
+	color: rgb(165, 235, 238);
+}
+.text {
+	color: rgb(165, 235, 238);
+}
+body {
+background-color: rgb(165, 189, 233);
+background-image:  url("background.jpg");
+
+}
+
+
+@media all and (min-width: 480px) {
+  .Login {
+    padding: 60px 0;
+  }
+
+  .Login form {
+    margin: 0 auto;
+    max-width: 320px;
+  }
+}
+
+

@@ -1,0 +1,43 @@
+.user {
+    background: #fff;
+    border-radius: 2px;
+    height: 125px;
+    margin: 1rm;
+    position: relative;
+    display: flex;
+    width: 100%;
+    box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+    /* text-align: left; */
+    border: solid;
+    border-color: #000;
+    margin: 5px;
+  }
+
+  .user > .img-container {
+    height: 90%;
+    width: 10%;
+    overflow: hidden;
+    text-align: center;
+    background:#fff;
+    position: relative;
+    margin: 5px;
+
+  }
+  .user > .img-container > img {
+    width: 50%;
+  }
+
+  .user > .content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 15px;
+  }
+  
+  .user > .content > ul {
+    list-style-type: none;
+
+  }
+  
+  .user > .content > ul > li {
+    /* margin-top: 18px; */
+  }
