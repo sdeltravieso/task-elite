@@ -23,17 +23,17 @@ module.exports = function (sequelize, DataTypes) {
 		timestamps: false,
 	});
 
-	Task.associate = function (models) {
-		models.Task.belongsTo(models.Department, {
-			foreignKey: 'department_id'
-			// foreignKey: 'id'
-		});
+	// Task.associate = function (models) {
+	// 	models.Task.belongsTo(models.Department, {
+	// 		foreignKey: 'department_id'
+	// 		// foreignKey: 'id'
+	// 	});
 
-		models.Task.belongsTo(models.User, {
-			foreignKey: 'assigned_user'
-			// foreignKey: 'id'
-		});
-	}
+	// 	models.Task.belongsTo(models.User, {
+	// 		foreignKey: 'assigned_user'
+	// 		// foreignKey: 'id'
+	// 	});
+	// }
 
 
 

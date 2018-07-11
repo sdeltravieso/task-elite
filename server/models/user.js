@@ -29,17 +29,17 @@ module.exports = function (sequelize, DataTypes) {
 			timestamps: false,
 		});
 
-	User.associate = function (models) {
+	// User.associate = function (models) {
 
-		models.User.hasMany(models.Task, {
-			foreignKey: 'assigned_user'
-			// foreignKey: 'id'
-		});
+	// 	models.User.hasMany(models.Task, {
+	// 		foreignKey: 'assigned_user'
+	// 		// foreignKey: 'id'
+	// 	});
 
-		models.User.belongsTo(models.Project, {
-			foreignKey: 'id'
-		});
-	}
+	// 	models.User.belongsTo(models.Project, {
+	// 		foreignKey: 'id'
+	// 	});
+	// }
 
 
 

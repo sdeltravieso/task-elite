@@ -15,17 +15,17 @@ module.exports = function (sequelize, DataTypes) {
 		timestamps: false,
 	});
 
-	Department.associate = function (models) {
-		models.Department.belongsTo(models.Project, {
-			foreignKey: 'project_id'
-			// foreignKey: 'id'
-		});
+	// Department.associate = function (models) {
+	// 	models.Department.belongsTo(models.Project, {
+	// 		foreignKey: 'project_id'
+	// 		// foreignKey: 'id'
+	// 	});
 		
-		models.Department.hasMany(models.Task, {
-			foreignKey: 'id'
-		});
+	// 	models.Department.hasMany(models.Task, {
+	// 		foreignKey: 'id'
+	// 	});
 
-	}
+	// }
 
 	return Department;
 

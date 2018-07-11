@@ -16,13 +16,13 @@ module.exports = function (sequelize, DataTypes) {
 		timestamps: false,
 	});
 
-	Project.associate = function (models) {
+	// Project.associate = function (models) {
 
-		models.Project.hasMany(models.Department, {
-			foreignKey: 'id'
-		});
+	// 	models.Project.hasMany(models.Department, {
+	// 		foreignKey: 'id'
+	// 	});
 
-	}
+	// }
 
 	return Project;
 
