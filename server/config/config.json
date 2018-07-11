@@ -20,5 +20,12 @@
     "database": "kzaiyjt83y6fckn2",
     "host": "s554ongw9quh1xjs.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
+  },
+  "localDevelopment": {
+    "username": "root",
+    "password": "",
+    "database": "taskElite",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
   }
 }

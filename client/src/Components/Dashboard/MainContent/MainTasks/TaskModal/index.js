@@ -68,12 +68,12 @@ class AddTaskModal extends Component {
     if (this.state.taskName && this.state.taskDescription) {
         this.toggleModal();
       API.createTask({
-        // taskName: this.state.taskName,
-        taskName: "do this fun thing",
+        taskName: this.state.taskName,
+        // taskName: "do this fun thing",
         // author: this.state.author,
         completed: 0,
-        description: "Fun thing to be done",
-        // description: this.state.taskDescription,
+        // description: "Fun thing to be done",
+        description: this.state.taskDescription,
         department_id: 1,
         assigned_user: 2
       })

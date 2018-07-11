@@ -18,6 +18,7 @@ module.exports = function (sequelize, DataTypes) {
 	Department.associate = function (models) {
 		models.Department.belongsTo(models.Project, {
 			foreignKey: 'project_id'
+			// foreignKey: 'id'
 		});
 		
 		models.Department.hasMany(models.Task, {

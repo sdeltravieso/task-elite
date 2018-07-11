@@ -41,3 +41,12 @@
   .user > .content > ul > li {
     /* margin-top: 18px; */
   }
+
+  .user > .content > .delete {
+    color: #ff1744;
+    font-size: 48px;
+    position: absolute;
+    top: -15px;
+    right: 5px;
+    cursor: pointer;
+  }

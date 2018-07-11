@@ -1,8 +1,18 @@
-.navbarStyle {
-    /* position: absolute; */
+/* .navbarStyle {
+    /* position: absolute; 
     top: 0;
     width: 100%;
     text-align: center;
     padding: 1em;
     background-color:#ffffff;
+} */
+
+.navbarStyle {
+    /* position: absolute; */
+    margin: auto;
+top: 0;
+    width: 100%;
+text-align: center;
+    padding: 1em;
+background-color:#7aefff;
 }

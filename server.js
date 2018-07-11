@@ -44,9 +44,11 @@ require("./server/controllers/dbcontroller")(app);
 require('./server/config/passport/passport.js')(passport, models.user);
 
 //Sync Database
-models.sequelize.sync().then(function () {
+models.sequelize.sync({}).then(function () {
 	console.log('Database synced');
 
+}).then(function(stuff) {
+	models.sequelize.query("SET FOREIGN_KEY_CHECKS = 0");
 }).catch(function (err) {
 	console.log(err, "Database sync failed");
 });

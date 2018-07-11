@@ -10,7 +10,7 @@ const Sidebar = (props) => (
         <ul className="navbar-nav mr-auto flex-sm-column">
         <div className="logoDiv">
             <span>
-                <img className="logoImage" src="./images/taskEliteLogo.png"></img>
+                <img className="logoImage" src="../images/taskEliteLogo.png"></img>
             </span>
 
         </div> 

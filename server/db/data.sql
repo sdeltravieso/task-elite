@@ -2,9 +2,9 @@ USE kzaiyjt83y6fckn2;
 
 SET FOREIGN_KEY_CHECKS = 0;
 
-INSERT INTO owners (owner) 
-	VALUES
-    (1);
+-- INSERT INTO owners (owner) 
+-- 	VALUES
+--     (1);
 
 INSERT INTO users (fullname, username, email, password)
 	VALUES

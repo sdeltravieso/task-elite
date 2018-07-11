@@ -4,6 +4,8 @@ import API from "../utils/API";
 // import tasks from "./tasksData.json";
 import Task from "./Task";
 import AddTaskModal from "./TaskModal";
+import { List, ListItem } from "./List";
+import DeleteBtn from "./DeleteBtn";
 import {
   Button,
   Row,
@@ -27,6 +29,12 @@ class MainTasks extends Component {
   componentDidMount() {
     this.loadTasks();
   }
+
+  deleteTask = id => {
+    API.deleteTask(id)
+      .then(res => this.loadTasks())
+      .catch(err => console.log(err));
+  };
 
   // addTask = id => {
 
@@ -73,15 +81,23 @@ class MainTasks extends Component {
         </Row>
 
         <Row>
+          <List>
           {this.state.tasks.map(task => (
-            <Task
-              id={task.id}
-              key={task.id}
-              task={task.taskName}
-              description={task.description}
-            />
-            // <div>Something else for right now</div>
+            <ListItem>
+              <Task
+                id={task.id}
+                key={task.id}
+                task={task.taskName}
+                description={task.description}
+                deleteTask={this.deleteTask}
+                
+                />
+                {/* <DeleteBtn onClick={() => this.deleteTask(task._id)} /> */}
+              
+            {/* // <div>Something else for right now</div> */}
+            </ListItem>
           ))}
+            </List>
         </Row>
       </div>
     );
