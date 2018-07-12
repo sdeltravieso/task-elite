@@ -58,6 +58,47 @@ module.exports = function(app) {
       res.json(dbTask);
     });
   });
+  
+  // get all incomplete tasks
+  app.get("/api/incompleteTask/:complete", function(req, res) {
+    console.log("hit from dbcontroller.js");
+    db.Task.findAll({
+		where: {
+			completed: false
+		}
+	}).then(function(dbTask) {
+      console.log(dbTask);
+      res.json(dbTask);
+    });
+  });
+  
+  // get all complete tasks
+  app.get("/api/completedTask/:completed", function(req, res) {
+    console.log("hit from dbcontroller.js");
+    db.Task.findAll({
+		where: {
+			completed: true
+		}
+	}).then(function(dbTask) {
+      console.log(dbTask);
+      res.json(dbTask);
+    });
+  });
+  
+  // complete a task
+  app.put("/api/completeTask/:id", function(req, res) {
+    console.log("hit from dbcontroller.js");
+    db.Task.update({
+		completed: true
+	}, {
+		where: {
+			id: req.params.id
+		}
+	}).then(function(dbTask) {
+      console.log(dbTask);
+      res.json(dbTask);
+    });
+  });
 
   //Get task by ID
   app.get("/api/task/:id", function(req, res) {
@@ -185,26 +226,15 @@ module.exports = function(app) {
       .catch(error => res.status(422).json(error));
   });
 
-  // Remove project
-  app.delete("/api/delete-project/:id", async (req, res) => {
-    const { id } = req.params;
-    let project = await db.Project.remove({ _id: id }, (err, res) => {
-      if (err) return err;
-      return res;
-    });
-    res.send(project);
-  });
-
-  // //   Remove Task
-  //   app.delete("/api/delete-task/:id", async (req, res) => {
-  // 	  console.log("hit from delete task");
-  // 	const { id } = req.params;
-  // 	let task = await db.Task.destroy({ _id: id }, (err, res) => {
-  // 	  if (err) return err;
-  // 	  return res;
-  // 	});
-  // 	res.send(task);
-  //   });
+//   // Remove project
+//   app.delete("/api/delete-project/:id", async (req, res) => {
+//     const { id } = req.params;
+//     let project = await db.Project.remove({ _id: id }, (err, res) => {
+//       if (err) return err;
+//       return res;
+//     });
+//     res.send(project);
+//   });
 
 // Remove Task
   app.delete("/api/delete-task/:id", function(req, res) {
@@ -218,7 +248,7 @@ module.exports = function(app) {
     });
   });
 
-
+//   remove department
   app.delete("/api/delete-department/:id", function(req, res) {
     // We just have to specify which department we want to destroy with "where"
     db.Department.destroy({

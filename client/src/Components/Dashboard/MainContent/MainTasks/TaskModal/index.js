@@ -62,7 +62,7 @@ class AddTaskModal extends Component {
         taskName: this.state.taskName,
         // taskName: "do this fun thing",
         // author: this.state.author,
-        completed: 0,
+        completed: 1,
         // description: "Fun thing to be done",
         description: this.state.taskDescription,
         department_id: 1,

@@ -23,6 +23,14 @@ export default {
   getTasks: function() {
     return axios.get("/api/task/");
   },
+  // Gets all completed tasks
+  getCompletedTasks: function(completed) {
+    return axios.get("/api/completedTask/" + completed);
+  },
+  // Gets all completed tasks
+  getInCompletedTasks: function(completed) {
+    return axios.get("/api/incompleteTask/" + completed);
+  },
   // Gets task by id
   getTask: function(id) {
     return axios.get("/api/task/" + id);
@@ -31,6 +39,11 @@ export default {
   // create a new task
   createTask: function(taskData) {
     return axios.post("/api/newtask/", taskData);
+  },
+
+  // complete a task
+  completeTask: function(id) {
+    return axios.put("/api/completeTask/" + id);
   },
   
   // Deletes the task with the given id

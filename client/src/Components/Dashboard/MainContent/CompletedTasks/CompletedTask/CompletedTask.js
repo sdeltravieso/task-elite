@@ -1,7 +1,7 @@
 import React from "react";
-import "./Task.css";
+import "./CompletedTask.css";
 
-const Task = props => (
+const CompletedTask = props => (
   // <div onClick={() => props.setClicked(props.id)} className="user">
   <div className="user">
     <div className="img-container">
@@ -18,15 +18,11 @@ const Task = props => (
           {" " + props.description}
         </li>
       </ul>
-
-      <span onClick={() => props.completeTask(props.id)} className="complete">
-      Complete Task
-      </span>
-      <span onClick={() => props.deleteTask(props.id)} className="delete">
+      {/* <span onClick={() => props.deleteTask(props.id)} className="delete">
       ✗
-      </span>
+      </span> */}
     </div>
   </div>
 );
 
-export default Task;
+export default CompletedTask;
