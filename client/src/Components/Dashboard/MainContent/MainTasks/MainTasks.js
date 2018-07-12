@@ -23,7 +23,8 @@ class MainTasks extends Component {
 
   loadTasks = () => {
     console.log("hit from loadTasks");
-    API.getTasks().then(res => this.setState({ tasks: res.data }));
+    // API.getTasks().then(res => this.setState({ tasks: res.data }));
+    API.getInCompletedTasks().then(res => this.setState({ tasks: res.data }));
   };
 
   componentDidMount() {
@@ -36,9 +37,11 @@ class MainTasks extends Component {
       .catch(err => console.log(err));
   };
 
-  // addTask = id => {
-
-  // };
+  completeTask = id => {
+    API.completeTask(id)
+      .then(res => this.loadTasks())
+      .catch(err => console.log(err));
+  };
 
   // render() {
   //   // if there are no tasks, display that there are no tasks
@@ -78,6 +81,7 @@ class MainTasks extends Component {
       <div>
         <Row>
           <AddTaskModal />
+          <h1>Incomplete Tasks</h1>
         </Row>
 
         <Row>
@@ -89,6 +93,7 @@ class MainTasks extends Component {
                 key={task.id}
                 task={task.taskName}
                 description={task.description}
+                completeTask={this.completeTask}
                 deleteTask={this.deleteTask}
                 
                 />

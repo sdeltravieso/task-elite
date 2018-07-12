@@ -19,13 +19,13 @@ const Sidebar = (props) => (
             <Link className="nav-link" to="/users">Users</Link>
         </li>
         <li className="nav-item">
-            <a className="nav-link" href="#">Department</a>
+            <a className="nav-link" href="/department">Department</a>
         </li>
         <li className="nav-item">
             <Link className="nav-link" to="/tasks">Tasks</Link>
         </li>
         <li className="nav-item">
-            <a className="nav-link" href="#">Completed Tasks</a>
+            <a className="nav-link" href="/completedTasks">Completed Tasks</a>
         </li>
         
         </ul>
