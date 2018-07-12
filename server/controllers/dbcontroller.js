@@ -158,9 +158,9 @@ module.exports = function(app) {
   app.post("/api/newdepartment", function(req, res) {
     var department = req.body;
     db.Department.create({
-      departmentName: department.name,
+      departmentName: department.departmentName,
       description: department.description,
-      project_id: project.project_id
+    //   project_id: project.project_id
     }).then(function(dbDepartment) {
       console.log("department added to db");
       res.status(200).send("department added to db");
@@ -180,7 +180,7 @@ module.exports = function(app) {
     })
       .then(function(dbTask) {
         console.log("user added to db");
-        res.status(200).send("user added to db");
+		res.status(200).send("user added to db");
       })
       .catch(error => res.status(422).json(error));
   });
@@ -206,8 +206,9 @@ module.exports = function(app) {
   // 	res.send(task);
   //   });
 
+// Remove Task
   app.delete("/api/delete-task/:id", function(req, res) {
-    // We just have to specify which todo we want to destroy with "where"
+    // We just have to specify which task we want to destroy with "where"
     db.Task.destroy({
       where: {
         id: req.params.id
@@ -216,4 +217,17 @@ module.exports = function(app) {
       res.json(dbTask);
     });
   });
+
+
+  app.delete("/api/delete-department/:id", function(req, res) {
+    // We just have to specify which department we want to destroy with "where"
+    db.Department.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbDepartment) {
+      res.json(dbDepartment);
+    });
+  });
+  
 };

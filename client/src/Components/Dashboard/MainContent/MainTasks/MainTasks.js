@@ -94,7 +94,6 @@ class MainTasks extends Component {
                 />
                 {/* <DeleteBtn onClick={() => this.deleteTask(task._id)} /> */}
               
-            {/* // <div>Something else for right now</div> */}
             </ListItem>
           ))}
             </List>

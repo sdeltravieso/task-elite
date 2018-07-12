@@ -27,28 +27,24 @@ export default {
   getTask: function(id) {
     return axios.get("/api/task/" + id);
   },
-
+  
+  // create a new task
   createTask: function(taskData) {
     return axios.post("/api/newtask/", taskData);
   },
-
-  // Deletes the book with the given id
+  
+  // Deletes the task with the given id
   deleteTask: function(id) {
     return axios.delete("/api/delete-task/" + id);
   },
-
-
-
-
-
-
-  // Gets the book with the given id
-  getBook: function(id) {
-    return axios.get("/api/books/" + id);
+  
+  // create a new department
+  createDepartment: function(departmentData) {
+    return axios.post("/api/newdepartment/", departmentData);
   },
   
-  // Saves a book to the database
-  saveBook: function(bookData) {
-    return axios.post("/api/books", bookData);
+  // Deletes the department with the given id
+  deleteDepartment: function(id) {
+    return axios.delete("/api/delete-department/" + id);
   }
-};
+}

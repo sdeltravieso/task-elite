@@ -6,16 +6,16 @@ import API from "../../utils/API";
 const MODAL_A = 'modal_a';
 // const MODAL_B = 'modal_b';
 
-const DEFAULT_TITLE = 'New Task';
+const DEFAULT_TITLE = 'New Department';
 
-class AddTaskModal extends Component {
+class AddDepartmentModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
     //   title1: DEFAULT_TITLE,
     //   currentModal: null,
-      taskName: "",
-      taskDescription: ""
+      departmentName: "",
+      departmentDescription: ""
 
     };
   }
@@ -57,19 +57,19 @@ class AddTaskModal extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.taskName && this.state.taskDescription) {
-      API.createTask({
-        taskName: this.state.taskName,
+    if (this.state.departmentName && this.state.departmentDescription) {
+      API.createDepartment({
+        departmentName: this.state.departmentName,
         // taskName: "do this fun thing",
         // author: this.state.author,
-        completed: 0,
+        // completed: 0,
         // description: "Fun thing to be done",
-        description: this.state.taskDescription,
-        department_id: 1,
-        assigned_user: 2
+        description: this.state.departmentDescription,
+        // department_id: 1,
+        // assigned_user: 2
       })
       .then(this.handleModalCloseRequest())
-      .then(res => API.loadTasks())
+      .then(res => API.loadDepartments())
       // .then(loadTasks())
       .catch(err => console.log(err))
       // this.toggleModal();
@@ -82,12 +82,12 @@ class AddTaskModal extends Component {
 
     return (
       <div>
-        <button type="button" className="btn btn-primary" onClick={this.toggleModal(MODAL_A)}>Create New Task</button>
+        <button type="button" className="btn btn-primary" onClick={this.toggleModal(MODAL_A)}>Create New Department</button>
         {/* <button type="button" className="btn btn-primary" onClick={this.toggleModal(MODAL_B)}>Open Modal B</button> */}
         <MyModal
           title={this.state.title1}
-          taskName={this.state.taskName}
-          taskDescription={this.state.taskDescription}
+          departmentName={this.state.departmentName}
+          departmentDescription={this.state.departmentDescription}
           isOpen={currentModal == MODAL_A}
           onAfterOpen={this.handleOnAfterOpenModal}
           onRequestClose={this.handleModalCloseRequest}
@@ -100,4 +100,4 @@ class AddTaskModal extends Component {
   }
 }
 
-export default AddTaskModal
+export default AddDepartmentModal

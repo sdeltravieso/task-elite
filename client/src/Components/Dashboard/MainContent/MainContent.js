@@ -9,8 +9,8 @@ const MainContent = (props) => (
 
     <div className="maincontentContainer">
         {/* <Users /> */}
-        {/* <Departments /> */}
-        <MainTasks />
+        <Departments />
+        {/* <MainTasks /> */}
       </div>
 
 	// <div className="maincontentContainer">
