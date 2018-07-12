@@ -11,12 +11,15 @@ const Department = props => (
         <div className="content">
             <ul>
                 <li>Department: 
-                    {" " + props.department}
+                    {" " + props.departmentName}
                 </li> 
                 <li>Description: 
                     {" " + props.description}
                 </li> 
             </ul>
+            <span onClick={() => props.deleteDepartment(props.id)} className="delete">
+      ✗
+      </span>
         </div>
   </div>
 );
