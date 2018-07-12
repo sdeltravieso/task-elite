@@ -19,9 +19,9 @@ const User = props => (
                 <li>Email: 
                     {" " + props.email}
                 </li> 
-                <li>Department: 
+                {/* <li>Department: 
                     {" " + props.department}
-                </li> 
+                </li>  */}
             </ul>
         </div>
   </div>

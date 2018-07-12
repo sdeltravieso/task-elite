@@ -172,7 +172,7 @@ module.exports = function(app) {
     console.log("Hit from post a new task in dbcontoller.js");
     var task = req.body;
     db.Task.create({
-      taskName: task.name,
+      taskName: task.taskName,
       description: task.description,
       completed: false,
       department_id: task.department,
