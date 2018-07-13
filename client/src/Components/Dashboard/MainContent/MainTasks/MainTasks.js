@@ -5,7 +5,6 @@ import API from "../utils/API";
 import Task from "./Task";
 import AddTaskModal from "./TaskModal";
 import { List, ListItem } from "./List";
-import DeleteBtn from "./DeleteBtn";
 import {
   Button,
   Row,
@@ -18,17 +17,18 @@ import {
 
 class MainTasks extends Component {
   state = {
-    tasks: []
+    tasks: [],
+    users: []
   };
 
   loadTasks = () => {
     console.log("hit from loadTasks");
-    // API.getTasks().then(res => this.setState({ tasks: res.data }));
     API.getInCompletedTasks().then(res => this.setState({ tasks: res.data }));
   };
 
   componentDidMount() {
     this.loadTasks();
+    this.loadUsers();
   }
 
   deleteTask = id => {
@@ -43,38 +43,20 @@ class MainTasks extends Component {
       .catch(err => console.log(err));
   };
 
-  // render() {
-  //   // if there are no tasks, display that there are no tasks
-  //   if ((this.state.tasks.length = 0)) {
-  //     return (
-  //       <div>
-  //         <Row>
-  //           <AddTaskButton />
-  //         </Row>
-  //         <p>There are no unfinished tasks.</p>
-  //       </div>
-  //     );
-  //   } else {
-  //     return (
-  //       <div>
-  //         <Row>
-  //           <AddTaskButton />
-  //         </Row>
-  //         <Row>
-  //           {/* <p>There are tasks</p> */}
-  //           {this.state.tasks.map(task => (
-  //             <Task
-  //               id={task.id}
-  //               key={task.id}
-  //               task={task.taskName}
-  //               description={task.description}
-  //             />
-  //           ))}
-  //         </Row>
-  //       </div>
-  //     );
-  //   }
-  // }
+  // populate dropdown
+  loadUsers = () => {
+    console.log("hit");
+    API.getUsers().then(res => this.setState({ users: res.data }));
+  };
+
+  handleChange(event) {
+    this.setState({ value: event.target.value });
+  }
+
+  handleSubmit(event) {
+    alert("Your favorite flavor is: " + this.state.value);
+    event.preventDefault();
+  }
 
   render() {
     return (
@@ -86,22 +68,20 @@ class MainTasks extends Component {
 
         <Row>
           <List>
-          {this.state.tasks.map(task => (
-            <ListItem>
-              <Task
-                id={task.id}
-                key={task.id}
-                task={task.taskName}
-                description={task.description}
-                completeTask={this.completeTask}
-                deleteTask={this.deleteTask}
-                
-                />
-                {/* <DeleteBtn onClick={() => this.deleteTask(task._id)} /> */}
-              
-            </ListItem>
-          ))}
-            </List>
+            {this.state.tasks.map(task => (
+              <ListItem>
+                <Task
+                  id={task.id}
+                  key={task.id}
+                  task={task.taskName}
+                  description={task.description}
+                  completeTask={this.completeTask}
+                  deleteTask={this.deleteTask}
+                  users={this.state.users}
+                  />
+              </ListItem>
+            ))}
+          </List>
         </Row>
       </div>
     );
