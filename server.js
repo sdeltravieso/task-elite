@@ -25,13 +25,6 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
 
-app.set('views', './server/views')
-app.engine('hbs', exphbs({
-	extname: '.hbs'
-}));
-app.set('view engine', '.hbs');
-
-
 //Models
 var models = require("./server/models");
 
