@@ -2,7 +2,12 @@
   "name": "task-elite1",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001/",
+  "proxy": {
+    "/api": {
+      "target": "https://localhost/3001",
+      "secure": "false"
+    }
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.1.1",

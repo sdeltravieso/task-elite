@@ -10,31 +10,59 @@ import {
   ControlLabel
 } from "react-bootstrap";
 
+import axios from 'axios';
+import {Redirect} from 'react-router-dom';
+
 class Signup extends React.Component {
   constructor(props) {
-    super(props);
+    super();
 
     this.state = {
-      email: "",
-      password: ""
+			fullName: "",
+      username: "",
+			password: "",
+			redirectTo: null
     };
   }
 
   validateForm() {
-    return this.state.email.length > 0 && this.state.password.length > 0;
+    return this.state.username.length > 0 && this.state.password.length > 0;
   }
 
-  handleChange = event => {
+	handleChange = event => {
     this.setState({
       [event.target.id]: event.target.value
     });
   };
 
-  handleSubmit = event => {
+	handleSubmit = (event) => {
     event.preventDefault();
+    axios.post('/auth/signup', {
+			fullName: this.state.fullName,
+      username: this.state.username,
+      password: this.state.password
+    })
+    .then(response => {
+      const {error, username} = response.data;
+
+      if (error) {
+        alert('A username with this id exists already. Please enter a unique username', response.data.erorr)
+      }
+      else {
+        alert('Success!, a username has been created for you', username);
+        this.setState({
+          redirectTo:'/login'
+        });
+      };
+    });
   };
 
   render() {
+		const {fullName, username, password, confirmPassword, redirectTo} = this.state;
+
+    if (redirectTo) {
+      return <Redirect to={{pathname:redirectTo}} />
+    }
     return (
       <div className="Login">
 			<div className="imgdiv">
@@ -42,28 +70,28 @@ class Signup extends React.Component {
 				<h1>Welcome To Task Elite, Please Sign Up!</h1>
 			</div>
         <form onSubmit={this.handleSubmit}>
-				<FormGroup controlId="fullname" bsSize="large">
-            <ControlLabel className="text">Full Name</ControlLabel>
+				<FormGroup htmlFor="fullName" controlId="fullName" bsSize="large">
+            <ControlLabel htmlFor="fullName" className="text">Full Name</ControlLabel>
             <FormControl
               autoFocus
               type="text"
-              value={this.state.email}
+              value={fullName}
               onChange={this.handleChange}
             />
 						</FormGroup>
-          <FormGroup controlId="email" bsSize="large">
-            <ControlLabel className="text">Email</ControlLabel>
+          <FormGroup controlId="username" bsSize="large">
+            <ControlLabel htmlFor="username" className="text">Email</ControlLabel>
             <FormControl
               autoFocus
               type="email"
-              value={this.state.email}
+              value={username}
               onChange={this.handleChange}
             />
           </FormGroup>
-          <FormGroup controlId="password" bsSize="large">
+          <FormGroup htmlFor="password" controlId="password" bsSize="large">
             <ControlLabel className="text">Password</ControlLabel>
             <FormControl
-              value={this.state.password}
+              value={password}
               onChange={this.handleChange}
               type="password"
             />
@@ -72,7 +100,7 @@ class Signup extends React.Component {
 						block
 						bsSize="large"
             disabled={!this.validateForm()}
-            type="submit">
+            type="submit" onClick={this.handleSubmit}>
             Sign Up
           </Button>
         </form>
