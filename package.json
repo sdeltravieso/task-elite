@@ -1,13 +1,17 @@
 {
-  "name": "mern",
+  "name": "task-elite",
   "version": "1.0.0",
-  "description": "Mern Demo",
+  "description": "Task Elite",
+	"engines": {
+		"node": "8.10.0",
+		"yarn": "1.7.0"
+	},
   "main": "server.js",
   "scripts": {
     "server": "node server.js",
     "client": "cd client && yarn run start",
-    "start": "./node_modules/.bin/concurrently \"./node_modules/.bin/nodemon\" \"npm run client\"",
-    "build": "cd client && npm run build",
+    "start": "./node_modules/.bin/concurrently \"./node_modules/.bin/nodemon\" \"yarn run client\"",
+    "build": "cd client && yarn run build",
     "deploy": "yarn build && git add . && git commit -m \"Building for production\" && git push heroku master",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
