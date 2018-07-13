@@ -10,7 +10,7 @@
   "scripts": {
     "server": "node server.js",
     "client": "cd client && yarn start",
-    "start": "./node_modules/.bin/concurrently \"./node_modules/.bin/nodemon\" \"yarn start\"",
+    "start": "node server.js",
     "build": "cd client && yarn run build",
     "deploy": "yarn build && git add . && git commit -m \"Building for production\" && git push heroku master",
     "test": "echo \"Error: no test specified\" && exit 1"
