@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
+	app.use(express.static('client/build'));
 }
 
 
@@ -44,7 +44,7 @@ require('./server/config/passport/passport.js')(passport, models.user);
 models.sequelize.sync({}).then(function () {
 	console.log('Database synced');
 
-}).then(function(stuff) {
+}).then(function (stuff) {
 	models.sequelize.query("SET FOREIGN_KEY_CHECKS = 0");
 }).catch(function (err) {
 	console.log(err, "Database sync failed");
@@ -65,6 +65,10 @@ models.sequelize.sync({}).then(function () {
 // app.get("*", function (req, res) {
 // 	res.sendFile(path.join(__dirname, "./client/build/index.html"));
 // });
+
+app.get("*", function (req, res) {
+	res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 app.listen(PORT, function () {
 	console.log(`🌎 ==> Server now on port ${PORT}!`);
