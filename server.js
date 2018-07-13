@@ -14,6 +14,8 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
+app.use(express.static(__dirname + '/client/dist/'));
+
 
 // For Passport
 app.use(session({
