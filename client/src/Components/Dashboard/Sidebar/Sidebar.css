@@ -1,3 +1,26 @@
+
+#side-contain {
+    height: auto;
+    width: auto;
+    background-color: lightslategray;
+    margin: 10px 0 0 10px;
+    padding: 10px;
+    align-content: center;
+    align-items: center;
+}
+
+.nav-item {
+    background-color: #87ce93;
+    border: solid black 1.25px;
+    border-radius: .25em;
+    padding: 2.5%;
+    margin-top: 7.5px;
+    text-align: center;
+    margin-left: -40px;
+}
+
+.nav-link {}
+
 /* stylings from Stephen Lee */
 
 .sidebarStyle {
@@ -56,4 +79,10 @@ a:hover {
 
 a:active {
     color: blue;
+
+}
+
+li {
+    list-style: none!important;
+
 }

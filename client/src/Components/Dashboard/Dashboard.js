@@ -1,30 +1,20 @@
 import React from "react";
 import Sidebar from "./Sidebar";
-import Navbar from "./Navbar";
+import NavBar from "./Navbar";
 import MainContent from "./MainContent";
-import {
-  Button,
-  Row,
-  Col,
-  FormControl,
-  FormGroup,
-  Form,
-  ControlLabel
-} from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 
 const Dashboard = props => (
   <div>
     <Row>
-      <Col xs={12} md={2}>
+      <NavBar />
+    </Row>
+    <Row>
+      <Col xs={4} md={2} lg={2}>
         <Sidebar />
       </Col>
-      <Col xs={12} md={10}>
-        <Row>
-          <Navbar />
-        </Row>
-        <Row>
-          <MainContent />
-        </Row>
+      <Col xs={8} md={10} lg={10}>
+        <MainContent />
       </Col>
     </Row>
   </div>
