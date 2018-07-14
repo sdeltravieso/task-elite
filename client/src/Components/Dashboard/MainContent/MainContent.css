@@ -1,13 +1,12 @@
 .maincontentContainer {
     padding-top: 50px;
     background: #ECEFF1;
-    height: 100%;
-    width: 100%;
+    height: 800px;
+    width: auto;
     /* display: flex; */
     /* flex-flow: row wrap; */
-    padding: 15px;
     justify-content: space-around;
     align-content: flex-start;
     /* overflow: auto; */
-    margin: 25px;
+    margin: 10px 10px 0 -20px;
 }
