@@ -20,7 +20,7 @@ export default props => {
     onAfterOpen,
     onRequestClose,
     handleFormSubmit,
-    handleInputChange
+    handleInputChange,
   } = props;
 
   return (

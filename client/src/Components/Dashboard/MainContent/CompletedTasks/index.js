@@ -1,1 +1,1 @@
-export { default } from "./CompletedTasks";
+export { default } from "./CompletedTasks"
