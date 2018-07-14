@@ -34,7 +34,6 @@ var models = require("./server/models");
 
 
 //Routes
-var authRoute = require('./server/routes/auth.js')(app, passport);
 require("./server/controllers/dbcontroller")(app);
 
 //load passport strategies

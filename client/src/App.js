@@ -23,7 +23,7 @@ class App extends Component {
 					<Route exact path="/" render={() => <Login _login={this._login} />} />
 					<Route exact path="/dashboard" render={({ match }) => <Dashboard user={this.state.user} match={match} />} />
 					<Route exact path="/login" render={() => <Login _login={this._login} />} />
-					<Route path="/signup" component={Signup} />
+					<Route exact path="/signup" component={Signup} />
 				</Switch>
 			</div>
 		</Router>

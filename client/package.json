@@ -4,9 +4,13 @@
   "private": true,
   "proxy": {
     "/api": {
-      "target": "https://localhost/3001",
+      "target": "localhost:3001",
       "secure": "false"
-    }
+		},
+		"/auth":{
+			"target": "localhost:3001",
+			"secure": "false"
+		}
   },
   "dependencies": {
     "axios": "^0.18.0",

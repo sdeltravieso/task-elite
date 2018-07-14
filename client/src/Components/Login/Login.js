@@ -53,9 +53,6 @@ class Login extends React.Component {
 			}
 		}).catch(error => {
 			alert("Invalid username or password. Please try again.");
-			this.setState({
-				redirectTo: '/login'
-			})
 		});
 
 
