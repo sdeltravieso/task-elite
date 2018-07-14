@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Departments.css";
 import API from "../utils/API";
 import Department from "./Department";
+import AddDepartmentModal from "./DepartmentModal";
 import {
   Button,
   Row,
@@ -19,33 +20,40 @@ class Departments extends Component {
 
   loadDepartments = () => {
     console.log("hit from loadDepartments");
-    API.getDepartments().
-      then(res => 
-        this.setState({ departments: res.data }));
+    API.getDepartments().then(res => this.setState({ departments: res.data }));
   };
 
   componentDidMount() {
     this.loadDepartments();
-  }
+  };
+
+  deleteDepartment = id => {
+    API.deleteDepartment(id)
+      .then(res => this.loadDepartments())
+      .catch(err => console.log(err));
+  };
 
   render() {
     return (
-      <Row>
+      <div>
+        <Row>
+          <AddDepartmentModal />
+        </Row>
+
+        <Row>
           {this.state.departments.map(department => (
             <Department
               id={department.id}
               key={department.id}
-              department={department.departmentName}
+              departmentName={department.departmentName}
               description={department.description}
+              deleteDepartment={this.deleteDepartment}
             />
-            // <div>Something else for right now</div>
-    
           ))}
-      </Row>
-    
-    
-  );
-}
+        </Row>
+      </div>
+    );
+  }
 }
 
 // const Departments = props => (

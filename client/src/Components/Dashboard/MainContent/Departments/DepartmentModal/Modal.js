@@ -1,6 +1,6 @@
 import React from "react";
 import Modal from "react-modal";
-import { Input, TextArea, FormBtn } from "../Form";
+import { Input, TextArea, FormBtn } from "../../MainTasks/Form";
 
 // class NewTask extends Component {
 //   state = {
@@ -13,8 +13,8 @@ import { Input, TextArea, FormBtn } from "../Form";
 export default props => {
   const {
     title,
-    taskName,
-    taskDescription,
+    departmentName,
+    departmentDescription,
     isOpen,
     askToClose,
     onAfterOpen,
@@ -37,29 +37,29 @@ export default props => {
       <form>
         {/* <input onChange={onChangeInput} /> */}
         <div>
-          Task Title:
+          Department Name:
           <Input
-            value={taskName}
+            value={departmentName}
             onChange={handleInputChange}
-            name="taskName"
-            placeholder="Task Name (required)"
+            name="departmentName"
+            placeholder="Department Name (required)"
           />
         </div>
-        Task Description:
+        Department Description:
         <TextArea
-          value={taskDescription}
+          value={departmentDescription}
           onChange={handleInputChange}
-          name="taskDescription"
-          placeholder="Task Description (required)"
+          name="departmentDescription"
+          placeholder="Department Description (required)"
         />
         {/* <input /> */}
         <br />
         <FormBtn
-          disabled={!(taskName && taskDescription)}
+          disabled={!(departmentName && departmentDescription)}
           onClick={handleFormSubmit}
           // onClick={askToClose}
         >
-          Create Task
+          Create Department
         </FormBtn>
         {/* <button>Create Task</button> */}
         <button onClick={askToClose}>Cancel</button>

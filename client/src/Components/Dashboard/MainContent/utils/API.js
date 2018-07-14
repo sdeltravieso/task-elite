@@ -23,32 +23,41 @@ export default {
   getTasks: function() {
     return axios.get("/api/task/");
   },
+  // Gets all completed tasks
+  getCompletedTasks: function(completed) {
+    return axios.get("/api/completedTask/" + completed);
+  },
+  // Gets all completed tasks
+  getInCompletedTasks: function(completed) {
+    return axios.get("/api/incompleteTask/" + completed);
+  },
   // Gets task by id
   getTask: function(id) {
     return axios.get("/api/task/" + id);
   },
-
+  
+  // create a new task
   createTask: function(taskData) {
     return axios.post("/api/newtask/", taskData);
   },
 
-  // Deletes the book with the given id
+  // complete a task
+  completeTask: function(id) {
+    return axios.put("/api/completeTask/" + id);
+  },
+  
+  // Deletes the task with the given id
   deleteTask: function(id) {
     return axios.delete("/api/delete-task/" + id);
   },
-
-
-
-
-
-
-  // Gets the book with the given id
-  getBook: function(id) {
-    return axios.get("/api/books/" + id);
+  
+  // create a new department
+  createDepartment: function(departmentData) {
+    return axios.post("/api/newdepartment/", departmentData);
   },
   
-  // Saves a book to the database
-  saveBook: function(bookData) {
-    return axios.post("/api/books", bookData);
+  // Deletes the department with the given id
+  deleteDepartment: function(id) {
+    return axios.delete("/api/delete-department/" + id);
   }
-};
+}

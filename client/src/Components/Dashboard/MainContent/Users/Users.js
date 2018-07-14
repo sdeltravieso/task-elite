@@ -46,7 +46,7 @@ class Users extends Component {
               username={user.username}
               email={user.email}
               
-              department={user.department}
+              // department={user.department}
             />
     
           ))}
